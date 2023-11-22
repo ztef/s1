@@ -409,7 +409,10 @@ async function getTable(params, outs){
     case "Vis_CatUN_Cemento":
       table = "Vis_CatUN_Cemento";
       break;
-    
+    case "Vis_RadarConfig":
+      table = "Vis_RadarConfig";
+      break;
+          
     default:
       table = "";
   }
