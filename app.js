@@ -184,25 +184,25 @@ router.get('/img/:file', (_req,res) => {
 
 /**
  * @swagger
- * /about:
+ * /api/about:
  *   get:
  *     summary: Get information about the application.
  *     responses:
  *       200:
  *         description: Return information about the application.
- * /query:
+ * /api/query:
  *   get:
  *     summary: Display the query page.
  *     responses:
  *       200:
  *         description: Return the query page.
- * /get:
+ * /api/get:
  *   get:
  *     summary: Display the get page.
  *     responses:
  *       200:
  *         description: Return the get page.
- * /img/{file}:
+ * /api/img/{file}:
  *   get:
  *     summary: Serve an image file.
  *     parameters:
@@ -224,7 +224,7 @@ router.get('/img/:file', (_req,res) => {
 
 /**
  * @swagger
- * /getData:
+ * /api/getData:
  *   get:
  *     summary: Retrieve data from the database.
  *     description: Retrieves data from the database based on the provided query parameters.
@@ -345,7 +345,7 @@ async function getData(params, outs){
 
 /**
  * @swagger
- * /getTable:
+ * /api/getTable:
  *   get:
  *     summary: Retrieve data from a table.
  *     description: Retrieves data from a specified table based on query parameters.
@@ -412,7 +412,7 @@ async function getTable(params, outs){
     case "Vis_RadarConfig":
       table = "Vis_RadarConfig";
       break;
-          
+    
     default:
       table = "";
   }
@@ -455,7 +455,7 @@ async function getTable(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_OOSFilial:
+ * /api/getSP/VIS_Calcular_OOSFilial:
  *   get:
  *     summary: Execute VIS_Calcular_OOSFilial stored procedure.
  *     description: Execute the VIS_Calcular_OOSFilial stored procedure with the provided parameters.
@@ -661,7 +661,7 @@ async function getVIS_Calcular_OOSFilial(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_FillRate_conParams:
+ * /api/getSP/VIS_Calcular_FillRate_conParams:
  *   get:
  *     summary: Execute VIS_Calcular_FillRate_conParams stored procedure.
  *     description: Execute the VIS_Calcular_FillRate_conParams stored procedure with the provided parameters.
@@ -866,7 +866,7 @@ async function getVIS_Calcular_FillRate_conParams(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_FillRate_conParams_conUN:
+ * /api/getSP/VIS_Calcular_FillRate_conParams_conUN:
  *   get:
  *     summary: Execute VIS_Calcular_FillRate_conParams_conUN stored procedure.
  *     description: Execute the VIS_Calcular_FillRate_conParams_conUN stored procedure with the provided parameters.
@@ -1081,7 +1081,7 @@ async function getVIS_Calcular_FillRate_conParams_conUN(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_FillRate:
+ * /api/getSP/VIS_Calcular_FillRate:
  *   get:
  *     summary: Execute VIS_Calcular_FillRate stored procedure.
  *     description: Execute the VIS_Calcular_FillRate stored procedure with the provided parameters.
@@ -1206,7 +1206,7 @@ async function getVIS_Calcular_FillRate(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Inventarios:
+ * /api/getSP/VIS_Inventarios:
  *   get:
  *     summary: Execute VIS_Inventarios stored procedure.
  *     description: Execute the VIS_Inventarios stored procedure with the provided parameters.
@@ -1292,7 +1292,7 @@ async function getVIS_Inventarios(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_ObtenerFechas:
+ * /api/getSP/VIS_ObtenerFechas:
  *   get:
  *     summary: Execute VIS_ObtenerFechas stored procedure.
  *     description: Execute the VIS_ObtenerFechas stored procedure with the provided parameters.
@@ -1387,7 +1387,7 @@ async function getVIS_ObtenerFechas(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_GetFrentes_FillRate:
+ * /api/getSP/VIS_GetFrentes_FillRate:
  *   get:
  *     summary: Execute VIS_GetFrentes_FillRate stored procedure.
  *     description: Execute the VIS_GetFrentes_FillRate stored procedure with the provided parameters.
@@ -1484,7 +1484,7 @@ async function VIS_GetFrentes_FillRate(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Abasto_FillRate:
+ * /api/getSP/VIS_Calcular_KPI_Abasto_FillRate:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Abasto_FillRate stored procedure.
  *     description: Execute the specified stored procedure with the provided parameters.
@@ -1701,7 +1701,7 @@ async function getVIS_Calcular_KPI_Abasto_FillRate(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Abasto_Detalle:
+ * /api/getSP/VIS_Calcular_KPI_Abasto_Detalle:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Abasto_Detalle stored procedure.
  *     description: Execute the specified stored procedure with the provided parameters.
@@ -1913,7 +1913,7 @@ async function getVIS_Calcular_KPI_Abasto_FillRate_Nuevo(params, outs){
 
 /**
  * @swagger
- * /getSP/Generico:
+ * /api/getSP/Generico:
  *   get:
  *     summary: Execute a generic stored procedure.
  *     description: Executes a generic stored procedure based on query parameters.
@@ -2201,7 +2201,7 @@ async function getVIS_Calcular_KPI_Generico(params, outs){
 
 /**
  * @swagger
- * /getSP/Cadena/Generico:
+ * /api/getSP/Cadena/Generico:
  *   get:
  *     summary: Execute a generic stored procedure.
  *     description: Executes a generic stored procedure based on query parameters.
@@ -2284,7 +2284,7 @@ async function getVIS_Calcular_Cadena_Generico(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Produccion_FillRate:
+ * /api/getSP/VIS_Calcular_KPI_Produccion_FillRate:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Produccion_FillRate stored procedure.
  *     description: Execute the specified stored procedure with the provided parameters.
@@ -2502,7 +2502,7 @@ async function getVIS_Calcular_KPI_Produccion_FillRate(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_PedidosPendientes_Estado:
+ * /api/getSP/VIS_Calcular_KPI_PedidosPendientes_Estado:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_PedidosPendientes_Estado stored procedure.
  *     description: Execute the VIS_Calcular_KPI_PedidosPendientes_Estado stored procedure with the provided parameters.
@@ -2710,7 +2710,7 @@ async function getVIS_Calcular_KPI_PedidosPendientes_Estado(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Produccion_FillRate_Nuevo:
+ * /api/getSP/VIS_Calcular_KPI_Produccion_FillRate_Nuevo:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Produccion_FillRate_Nuevo stored procedure.
  *     description: Execute the VIS_Calcular_KPI_Produccion_FillRate_Nuevo stored procedure with the provided parameters.
@@ -2918,7 +2918,7 @@ async function getVIS_Calcular_KPI_Produccion_FillRate_Nuevo(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Flota_FillRate_PorDia:
+ * /api/getSP/VIS_Calcular_KPI_Flota_FillRate_PorDia:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Flota_FillRate_PorDia stored procedure.
  *     description: Execute the VIS_Calcular_KPI_Flota_FillRate_PorDia stored procedure with the provided parameters.
@@ -3126,7 +3126,7 @@ async function getVIS_Calcular_KPI_Flota_FillRate_PorDia(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Venta_FillRate_porDia:
+ * /api/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Venta_FillRate_porDia stored procedure.
  *     description: Execute the VIS_Calcular_KPI_Venta_FillRate_porDia stored procedure with the provided parameters.
@@ -3335,7 +3335,7 @@ async function getVIS_Calcular_KPI_Venta_FillRate_porDia(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Venta_FillRate_porDia_Det:
+ * /api/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia_Det:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Venta_FillRate_porDia_Det stored procedure.
  *     description: Execute the VIS_Calcular_KPI_Venta_FillRate_porDia_Det stored procedure with the provided parameters.
@@ -3544,7 +3544,7 @@ async function getVIS_Calcular_KPI_Venta_FillRate_porDia_Det(params, outs){
 
 /**
  * @swagger
- * /getSP/VIS_Calcular_KPI_Venta_FillRate_Det:
+ * /api/getSP/VIS_Calcular_KPI_Venta_FillRate_Det:
  *   get:
  *     summary: Execute VIS_Calcular_KPI_Venta_FillRate_Det stored procedure.
  *     description: Execute the VIS_Calcular_KPI_Venta_FillRate_Det stored procedure with the provided parameters.
@@ -3755,7 +3755,7 @@ async function getVIS_Calcular_KPI_Venta_FillRate_Det(params, outs){
 
   // Obtener Fechas
 
-router.get(['/getSP/VIS_ObtenerFechas'],(req, res) => {
+router.get(['/api/getSP/VIS_ObtenerFechas'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3786,10 +3786,9 @@ router.get(['/getSP/VIS_ObtenerFechas'],(req, res) => {
 
 
 });
-
 // Venta FillRate Detalle
 
-router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_Det'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_KPI_Venta_FillRate_Det'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3821,10 +3820,9 @@ router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_Det'],(req, res) => {
 
 });
 
-
 // Venta por dia Detalle holding
 
-router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia_Det'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia_Det'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3858,7 +3856,7 @@ router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia_Det'],(req, res) => {
 
 // Venta por dia
 
-router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3892,7 +3890,7 @@ router.get(['/getSP/VIS_Calcular_KPI_Venta_FillRate_porDia'],(req, res) => {
 
 // Venta por dia
 
-router.get(['/getSP/VIS_Calcular_KPI_Flota_FillRate_PorDia'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_KPI_Flota_FillRate_PorDia'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3926,7 +3924,7 @@ router.get(['/getSP/VIS_Calcular_KPI_Flota_FillRate_PorDia'],(req, res) => {
 
 // Pedidos Pendientes
 
-router.get(['/getSP/VIS_Calcular_KPI_PedidosPendientes_Estado'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_KPI_PedidosPendientes_Estado'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3960,7 +3958,7 @@ router.get(['/getSP/VIS_Calcular_KPI_PedidosPendientes_Estado'],(req, res) => {
 
 
 //OOS Filial
-router.get(['/getSP/VIS_Calcular_OOSFilial'],(req, res) => {
+router.get(['/api/getSP/VIS_Calcular_OOSFilial'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -3994,7 +3992,7 @@ router.get(['/getSP/VIS_Calcular_OOSFilial'],(req, res) => {
 
 //Fillrate con Parametros
 
-router.get('/getSP/VIS_Calcular_FillRate_conParams',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_FillRate_conParams',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -4028,7 +4026,7 @@ router.get('/getSP/VIS_Calcular_FillRate_conParams',(req, res) => {
 
 //Fillrate con Parametros con Unidad de Negocio
 
-router.get('/getSP/VIS_Calcular_FillRate_conParams_conUN',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_FillRate_conParams_conUN',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -4063,7 +4061,7 @@ router.get('/getSP/VIS_Calcular_FillRate_conParams_conUN',(req, res) => {
 
 //Alias
 
-router.get(['/getSP/VIS_Inventarios'],(req, res) => {
+router.get(['/api/getSP/VIS_Inventarios'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -4097,7 +4095,7 @@ router.get(['/getSP/VIS_Inventarios'],(req, res) => {
 
 //Alias
 
-router.get(['/getSP/VIS_GetFrentes_FillRate'],(req, res) => {
+router.get(['/api/getSP/VIS_GetFrentes_FillRate'],(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ********");
@@ -4130,7 +4128,7 @@ router.get(['/getSP/VIS_GetFrentes_FillRate'],(req, res) => {
 });
 
 
-router.get('/getSP/VIS_Calcular_KPI_Abasto_Detalle',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Abasto_Detalle',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ");
@@ -4163,7 +4161,7 @@ router.get('/getSP/VIS_Calcular_KPI_Abasto_Detalle',(req, res) => {
 });
 
 
-router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ");
@@ -4195,7 +4193,7 @@ router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
 
 });
 
-router.get('/getSP/VIS_Calcular_KPI_Produccion_FillRate',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Produccion_FillRate',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP Produccion: ");
@@ -4227,7 +4225,7 @@ router.get('/getSP/VIS_Calcular_KPI_Produccion_FillRate',(req, res) => {
 
 });
 
-router.get('/getSP/VIS_Calcular_KPI_Produccion_FillRate_Nuevo',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Produccion_FillRate_Nuevo',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP Produccion: ");
@@ -4259,7 +4257,7 @@ router.get('/getSP/VIS_Calcular_KPI_Produccion_FillRate_Nuevo',(req, res) => {
 
 });
 
-router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP : ");
@@ -4291,7 +4289,7 @@ router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate',(req, res) => {
 
 });
 
-router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate_Nuevo',(req, res) => {
+router.get('/api/getSP/VIS_Calcular_KPI_Abasto_FillRate_Nuevo',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP Produccion: ");
@@ -4324,7 +4322,7 @@ router.get('/getSP/VIS_Calcular_KPI_Abasto_FillRate_Nuevo',(req, res) => {
 });
 
 
-router.get('/getSP/Generico',(req, res) => {
+router.get('/api/getSP/Generico',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP Generico: ");
@@ -4359,7 +4357,7 @@ router.get('/getSP/Generico',(req, res) => {
 });
 
 
-router.get('/getSP/Cadena/Generico',(req, res) => {
+router.get('/api/getSP/Cadena/Generico',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a SP Generico: ");
@@ -4398,7 +4396,7 @@ router.get('/getSP/Cadena/Generico',(req, res) => {
 
 
 
-router.get('/getTable',(req, res) => {
+router.get('/api/getTable',(req, res) => {
 
   let inicio = moment();
   console.log("Llamada a getTable: ");
@@ -4433,7 +4431,7 @@ router.get('/getTable',(req, res) => {
 
 
 
-router.get('/getData',(req, res) => {
+router.get('/api/getData',(req, res) => {
 
   let inicio = moment();
   console.log("Recibiendo query : ");
@@ -4466,7 +4464,7 @@ router.get('/getData',(req, res) => {
 
 
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // abasto, producc, ventas, oos, deficit flota
 // fill rate tabla
