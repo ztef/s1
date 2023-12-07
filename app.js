@@ -3751,6 +3751,131 @@ async function getVIS_Calcular_KPI_Venta_FillRate_Det(params, outs){
 }
 
 
+/**
+ * @swagger
+ * /api/getSP/JDA_DesgloseProduccion:
+ *   get:
+ *     summary: Execute JDA_DesgloseProduccion stored procedure.
+ *     description: Execute the JDA_DesgloseProduccion stored procedure with the provided parameters.
+ *     parameters:
+ *       - in: query
+ *         name: fechaInicio
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Start date for the query.
+ *       - in: query
+ *         name: fechaFin
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: End date for the query.
+ *     responses:
+ *       200:
+ *         description: Successfully executed the stored procedure.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 columnName1:
+ *                   type: string
+ *                   description: Description of the first column.
+ *                 columnName2:
+ *                   type: number
+ *                   description: Description of the second column.
+ *                 
+ *               example:
+ *                 columnName1: ExampleValue1
+ *                 columnName2: 42
+ *       500:
+ *         description: Internal server error.
+ * 
+ * 
+*/
+//JDA_DesgloseProduccion
+
+async function getJDA_DesgloseProduccion(params, outs){
+
+
+
+  var r = await sql.connect(sqlconfig).then(
+    pool => {
+
+
+      var fechaInicio = params.fechaInicio;
+      var fechaFin = params.fechaFin;
+
+
+
+      // Stored procedure
+
+      var r = pool.request().input('fechaInicio', fechaInicio).input('fechaFin', fechaFin).execute('JDA_DesgloseProduccion');
+          
+      return (r)
+  }
+  ).then(
+    result => {
+      console.dir(result)
+      return(result)
+
+  }
+  ).catch(
+    err => {
+     console.log(err)
+  }
+
+
+
+  );
+
+
+  return (r)
+
+
+
+}
+
+
+
+  //ROUTER'S
+
+
+
+  router.get(['/api/getSP/JDA_DesgloseProduccion'],(req, res) => {
+
+    let inicio = moment();
+    console.log("Llamada a SP : ********");
+    console.log(req.query);
+  
+    res.setHeader('Content-Type', 'application/json');
+  
+    getJDA_DesgloseProduccion(req.query,res).then((datos)=>{
+  
+              res.setHeader('Content-Type', 'application/json');
+  
+              let medio = moment()
+              try{
+               if(datos=== undefined){
+                  res.end(JSON.stringify({'error':'timeout'}))
+                } else {
+                  res.end(JSON.stringify(datos))
+  
+                }
+              } catch {
+                res.end(JSON.stringify({'error':'timeout'}))
+              }
+  
+              let fin = moment()
+              console.log("Respondiendo SP en : ", fin.diff(inicio));
+  
+      });
+  
+  
+  });
+
+
+
   //ROUTER'S
 
   // Obtener Fechas
