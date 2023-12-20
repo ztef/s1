@@ -1228,6 +1228,11 @@ async function getVIS_Calcular_FillRate(params, outs){
  *         schema:
  *           type: string
  *         description: vc50_Region_UN parameter description.
+ *       - in: query
+ *         name: GerenciaUN
+ *         schema:
+ *           type: string
+ *         description: GerenciaUN parameter description.
  *     responses:
  *       200:
  *         description: Successfully executed the stored procedure.
@@ -1265,11 +1270,11 @@ async function getVIS_Inventarios(params, outs){
       var fechaInicio = params.fechaInicio;
       var fechaFin = params.fechaFin;
       var vc50_Region_UN  =  params.vc50_Region_UN === undefined ? null : params.vc50_Region_UN;
-
+      var GerenciaUN  =  params.GerenciaUN === undefined ? null : params.GerenciaUN;
 
       // Stored procedure
 
-      var r = pool.request().input('fechaInicio', fechaInicio).input('fechaFin', fechaFin).execute('VIS_Inventarios');
+      var r = pool.request().input('fechaInicio', fechaInicio).input('fechaFin', fechaFin).input('GerenciaUN', GerenciaUN).execute('VIS_Inventarios');
           
       return (r)
   }
