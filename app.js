@@ -3868,12 +3868,194 @@ async function getJDA_DesgloseProduccion(params, outs){
 
 }
 
+/**
+ * @swagger
+ * /api/getSP/VIS_Calcular_KPI_Venta_OOSFiliales:
+ *   get:
+ *     summary: Execute VIS_Calcular_KPI_Venta_OOSFiliales stored procedure.
+ *     description: Execute the VIS_Calcular_KPI_Venta_OOSFiliales stored procedure with the provided parameters.
+ *     parameters:
+ *       - in: query
+ *         name: fechaInicio
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Start date for the query.
+ *       - in: query
+ *         name: fechaFin
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: End date for the query.
+ *       - in: query
+ *         name: agrupador
+ *         schema:
+ *           type: string
+ *         description: agrupador parameter description.
+ *       - in: query
+ *         name: RegionZTDem
+ *         schema:
+ *           type: string
+ *         description: RegionZTDem parameter description.
+ *       - in: query
+ *         name: EstadoZTDem
+ *         schema:
+ *           type: string
+ *         description: EstadoZTDem parameter description.
+ *       - in: query
+ *         name: AgrupProducto
+ *         schema:
+ *           type: string
+ *         description: AgrupProducto parameter description.
+ *       - in: query
+ *         name: PlazaConcretos
+ *         schema:
+ *           type: string
+ *         description: PlazaConcretos parameter description.
+ *       - in: query
+ *         name: PlantaConcretos
+ *         schema:
+ *           type: string
+ *         description: PlantaConcretos parameter description.
+ *       - in: query
+ *         name: Presentacion
+ *         schema:
+ *           type: string
+ *         description: Presentacion parameter description.
+ *       - in: query
+ *         name: vc550_Region_UN
+ *         schema:
+ *           type: string
+ *         description: vc550_Region_UN parameter description.
+ *       - in: query
+ *         name: GerenciaUN
+ *         schema:
+ *           type: string
+ *         description: GerenciaUN parameter description.
+ *       - in: query
+ *         name: vc550_UN_Tact
+ *         schema:
+ *           type: string
+ *         description: vc550_UN_Tact parameter description.
+ *     responses:
+ *       200:
+ *         description: Successfully executed the stored procedure.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 columnName1:
+ *                   type: string
+ *                   description: Description of the first column.
+ *                 columnName2:
+ *                   type: number
+ *                   description: Description of the second column.
+ *                
+ *               example:
+ *                 columnName1: ExampleValue1
+ *                 columnName2: 42
+ *       500:
+ *         description: Internal server error.
+ */
+
+async function getVIS_Calcular_KPI_Venta_OOSFiliales(params, outs){
+
+
+
+  var r = await sql.connect(sqlconfig).then(
+    pool => {
+
+
+
+       var RegionZTDem  = params.RegionZTDem === undefined ? null : params.RegionZTDem;
+       var EstadoZTDem  =  params.EstadoZTDem === undefined ? null : params.EstadoZTDem;
+       var AgrupProducto  =  params.AgrupProducto === undefined ? null : params.AgrupProducto;
+       var Presentacion  =  params.Presentacion === undefined ? null : params.Presentacion;
+       var vc50_Region_UN  =  params.vc50_Region_UN === undefined ? null : params.vc50_Region_UN;
+       var GerenciaUN  =  params.GerenciaUN === undefined ? null : params.GerenciaUN;
+       var vc50_UN_Tact  =  params.vc50_UN_Tact === undefined ? null : params.vc50_UN_Tact;
+       var PlazaConcretos  =  params.PlazaConcretos === undefined ? null : params.PlazaConcretos;
+       var PlantaConcretos  =  params.PlantaConcretos === undefined ? null : params.PlantaConcretos;
+       
+
+      // Stored procedure
+
+      var r = pool.request()
+          .input('fechaInicio', params.fechaInicio)
+          .input('fechaFin',params.fechaFin)
+          .input('agrupador',params.agrupador)
+          .input('RegionZTDem' , RegionZTDem)
+          .input('EstadoZTDem', EstadoZTDem)
+          .input('AgrupProducto', AgrupProducto)
+          .input('Presentacion',Presentacion)
+          .input('vc50_Region_UN', vc50_Region_UN)
+          .input('GerenciaUN', GerenciaUN )
+          .input('vc50_UN_Tact', vc50_UN_Tact)
+          .input('PlazaConcretos', PlazaConcretos)
+          .input('PlantaConcretos', PlantaConcretos)
+
+
+
+
+          //.output('output_parameter', sql.VarChar(50))
+          .execute('VIS_Calcular_KPI_Venta_OOSFiliales')
+
+      return (r)
+  }
+  ).then(
+    result => {
+      console.dir(result)
+      return(result)
+
+  }
+  ).catch(
+    err => {
+     console.log(err)
+  }
+
+  );
+
+  return (r)
+}
 
 
   //ROUTER'S
 
+//Venta OOS Filiales
+  router.get(['/api/getSP/VIS_Calcular_KPI_Venta_OOSFiliales'],(req, res) => {
 
+    let inicio = moment();
+    console.log("Llamada a SP : ********");
+    console.log(req.query);
+  
+    res.setHeader('Content-Type', 'application/json');
+  
+    getVIS_Calcular_KPI_Venta_OOSFiliales(req.query,res).then((datos)=>{
+  
+              res.setHeader('Content-Type', 'application/json');
+  
+              let medio = moment()
+              try{
+               if(datos=== undefined){
+                  res.end(JSON.stringify({'error':'timeout'}))
+                } else {
+                  res.end(JSON.stringify(datos))
+  
+                }
+              } catch {
+                res.end(JSON.stringify({'error':'timeout'}))
+              }
+  
+              let fin = moment()
+              console.log("Respondiendo SP en : ", fin.diff(inicio));
+  
+      });
+  
+  
+  });
 
+//JDA Desglose Produccion
   router.get(['/api/getSP/JDA_DesgloseProduccion'],(req, res) => {
 
     let inicio = moment();
