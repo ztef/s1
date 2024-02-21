@@ -116,7 +116,8 @@ function blockPublicIP(req, res, next) {
   // Allow requests from the 10.0.0.0/8 range (private IP addresses) and 192.0.0.0/8 range (private IP addresses)
   if (
     (octets.length === 4 && octets[0] === '10') ||
-    (octets.length === 4 && octets[0] === '192')
+    (octets.length === 4 && octets[0] === '192') ||
+    (octets.length === 4 && octets[0] === '165' && octets[1] === '225')
   ) {
     next();
   } else if (isExternalAllowed) {
